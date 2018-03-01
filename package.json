@@ -1,8 +1,11 @@
 {
   "name": "nano-base32",
+  "author": "Gray Olson",
   "version": "1.0.0",
   "license": "MIT",
   "repository": "temrhn/nano-base32",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "standard && mocha"
   },

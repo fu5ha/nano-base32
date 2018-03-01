@@ -1,6 +1,6 @@
 # Nano-Base32
 
-An implementation of the Base32 encoding/decoding scheme used by the cryptocurrency Nano.
+A small, quick, self-contained implementation of the Base32 encoding/decoding scheme used by the cryptocurrency Nano.
 
 ## Installation
 
