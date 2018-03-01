@@ -23,24 +23,24 @@ const arrayBufferToHex = require('array-buffer-to-hex')
 const blake = require('blakejs')
 
 const pubKey = '0D7471E5D11FADDCE5315C97B23B464184AFA8C4C396DCF219696B2682D0ADF6'
-var buffer = new Uint8Array(hexToArrayBuffer(pubKey))
+const buffer = new Uint8Array(hexToArrayBuffer(pubKey))
 
-var encoded = nanoBase32.encode(buffer)
+const encoded = nanoBase32.encode(buffer)
 // => 15dng9kx49xfumkm4q6qpaxneie6oynebiwpums3ktdd6t3f3dhp
 
-var checksum = blake.blake2b(buffer, null, 5).reverse()
+const checksum = blake.blake2b(buffer, null, 5).reverse()
 // => Uint8Array [ 33, 233, 215, 36, 38 ]
-var checksumEncoded = nanoBase32.encode(checksum)
+const checksumEncoded = nanoBase32.encode(checksum)
 // => 69nxgb38
 
 const address = `xrb_${encoded}${checksumEncoded}`
 // => xrb_15dng9kx49xfumkm4q6qpaxneie6oynebiwpums3ktdd6t3f3dhp69nxgb38
 
-var decoded = nanoBase32.decode(encoded)
-var decodedHex = arrayBufferToHex(decoded.buffer).toUpperCase()
+const decoded = nanoBase32.decode(encoded)
+const decodedHex = arrayBufferToHex(decoded.buffer).toUpperCase()
 // => 0D7471E5D11FADDCE5315C97B23B464184AFA8C4C396DCF219696B2682D0ADF6
 
-var decodedChecksum = nanoBase32.decode(checksumEncoded)
+const decodedChecksum = nanoBase32.decode(checksumEncoded)
 // => Uint8Array [ 33, 233, 215, 36, 38 ]
 ```
 
@@ -60,6 +60,14 @@ var decodedChecksum = nanoBase32.decode(checksumEncoded)
  * @returns {string}
  */
 function encode (view)
+ ```
+
+ ## Running Tests
+ ```
+ $ git clone https://github.com/termhn/node-base32
+ $ cd node-base32
+ $ yarn install
+ $ yarn test
  ```
 
 ## Credit

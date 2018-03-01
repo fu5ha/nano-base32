@@ -14,14 +14,13 @@ var testCases = [
 describe('nanoBase32', function () {
   testCases.forEach(function (testCase) {
     const pubKey = testCase[0]
-    var buffer = new Uint8Array(hexToArrayBuffer(pubKey))
-    var encoded = nanoBase32.encode(buffer)
-    var checksum = blake.blake2b(buffer, null, 5).reverse()
-    console.log(checksum)
-    var checksumEncoded = nanoBase32.encode(checksum)
+    const buffer = new Uint8Array(hexToArrayBuffer(pubKey))
+    const encoded = nanoBase32.encode(buffer)
+    const checksum = blake.blake2b(buffer, null, 5).reverse()
+    const checksumEncoded = nanoBase32.encode(checksum)
     const address = `xrb_${encoded}${checksumEncoded}`
-    var decoded = nanoBase32.decode(encoded)
-    var decodedChecksum = nanoBase32.decode(checksumEncoded)
+    const decoded = nanoBase32.decode(encoded)
+    const decodedChecksum = nanoBase32.decode(checksumEncoded)
     describe(`with test case: ${testCase[0]}, ${testCase[1]}`, function () {
       describe('.encode()', function () {
         it('should encode 32 byte hex key with proper padding', function () {
