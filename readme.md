@@ -64,8 +64,8 @@ function encode (view)
 
  ## Running Tests
  ```
- $ git clone https://github.com/termhn/node-base32
- $ cd node-base32
+ $ git clone https://github.com/termhn/nano-base32
+ $ cd nano-base32
  $ yarn install
  $ yarn test
  ```
